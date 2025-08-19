@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+.font-outline-2 {
+  -webkit-text-stroke: 2px #66E8FA;
+  color: transparent;
+}
+
+@font-face {
+  font-family: 'Serif';
+  /* You'll need to add your preferred serif font here */
+}
+
+body {
+  margin: 0;
+  background-color: #22282A;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ...existing code... */
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Cursor Styles */
+a, button, [data-cursor="pointer"] {
+  cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #66E8FA;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(102, 232, 250, 0.2);
+  border: 1px solid #66E8FA;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+/* Fluid Cursor Styles */
+body {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+a, button, [data-cursor="pointer"] {
+  cursor: none;
+}
+
+.fluid-cursor-container {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.fluid-cursor {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: #66E8FA;
+  border-radius: 50%;
+  transition: width 0.2s, height 0.2s;
+  will-change: transform;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fluid-cursor-bg {
+  will-change: transform;
+  transition: all 0.1s;
+  border-radius: 50%;
+  background-color: rgba(102, 232, 250, 0.15);
+  margin: -20px 0 0 -20px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
+/* Hover effects for interactive elements */
+[data-cursor="pointer"]:hover ~ .fluid-cursor-container .fluid-cursor-bg {
+  background-color: rgba(102, 232, 250, 0.25);
+  transform: scale(1.5) !important;
+}
+
+/* Hover effects for interactive elements */
+[data-cursor="pointer"]:hover ~ .cursor {
+  width: 16px;
+  height: 16px;
+  background-color: #66E8FA;
+}
+
+[data-cursor="pointer"]:hover ~ .cursor-follower {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(102, 232, 250, 0.1);
+}
+
+[data-cursor="pointer"]:hover ~ .fluid-cursor-container .fluid-cursor {
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+}
+
+[data-cursor="pointer"]:hover ~ .fluid-cursor-container .fluid-cursor-bg {
+  background-color: rgba(102, 232, 250, 0.25);
+  transform: scale(1.5) !important;
+}

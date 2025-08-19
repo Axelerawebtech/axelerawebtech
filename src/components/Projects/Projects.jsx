@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+
+const Projects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const projects = [
+    {
+      id: 1,
+      name: "Issan Der",
+      description: "Modern Thai restaurant established in Toronto.",
+      image: "/img-1.jpg" // Updated image path
+    },
+    {
+      id: 2,
+      name: "Soban",
+      description: "Korean restaurant specializing in authentic Korean cuisine.",
+      image: "/img-1.jpg" // Updated image path
+    },
+    {
+      id: 3,
+      name: "Ajisen",
+      description: "Japanese restaurant chain specializing in tonkotsu ramen.",
+      image: "/img-1.jpg" // Updated image path
+    },
+    {
+      id: 4,
+      name: "Project 4",
+      description: "Japanese restaurant chain specializing in tonkotsu ramen.",
+      image: "/img-2.jpg" // Updated image path
+    },
+    {
+      id: 5,
+      name: "Issan Der",
+      description: "Modern Thai restaurant established in Toronto.",
+      image: "/img-1.jpg" // Updated image path
+    },
+    {
+      id: 6,
+      name: "Soban",
+      description: "Korean restaurant specializing in authentic Korean cuisine.",
+      image: "/img-1.jpg" // Updated image path
+    },
+    {
+      id: 7,
+      name: "Ajisen",
+      description: "Japanese restaurant chain specializing in tonkotsu ramen.",
+      image: "/img-2.jpg" // Updated image path
+    },
+    {
+      id: 8,
+      name: "Project 4",
+      description: "Japanese restaurant chain specializing in tonkotsu ramen.",
+      image: "/img-1.jpg" // Updated image path
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 3;
+      return nextIndex >= projects.length ? 0 : nextIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex - 3;
+      return nextIndex < 0 ? Math.max(0, projects.length - 3) : nextIndex;
+    });
+  };
+
+  const visibleProjects = projects.slice(currentIndex, currentIndex + 3);
+
+  return (
+    <div className="bg-[#92A6B0] py-20 overflow-hidden "
+    style={{
+						borderBottomLeftRadius: '64px',
+						borderBottomRightRadius: '64px',
+            borderTopLeftRadius: '64px',
+						borderTopRightRadius: '64px'
+					}}>
+      <div className="container mx-auto px-4">
+        <h2 className="text-8xl font-serif text-[#D5E1E7] mb-16">Projects</h2>
+        
+        <div className="relative">
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+            >
+              <div className="flex w-full">
+                {projects.map((project) => (
+                  <div 
+                    key={project.id}
+                    className="w-1/3 flex-shrink-0 px-4"
+                  >
+                    <div className="group relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.name} 
+                        className="w-full h-[400px] object-cover"
+                      />
+                      <div className="mt-4">
+                        <h3 className="text-4xl font-serif text-[#22282A]">{project.name}</h3>
+                        <p className="text-[#171717] mt-2">{project.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-8 space-x-4">
+            <button 
+              onClick={prevSlide}
+              className="text-[#D5E1E7] hover:text-[#66E8FA] transition-colors"
+              disabled={currentIndex === 0}
+            >
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
+                <path 
+                  d="M60 12H2M2 12L13 1M2 12L13 23" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                />
+              </svg>
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="text-[#D5E1E7] hover:text-[#66E8FA] transition-colors"
+              disabled={currentIndex + 3 >= projects.length}
+            >
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none">
+                <path 
+                  d="M0 12H58M58 12L47 1M58 12L47 23" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <button className="px-6 py-2 border border-[#D5E1E7] text-[#D5E1E7] hover:bg-[#66E8FA] hover:text-[#22282A] hover:border-[#66E8FA] transition-all">
+            View All
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Projects;
