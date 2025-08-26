@@ -16,18 +16,10 @@ const Footer = () => {
         { name: "About", path: "/about-us" },
         { name: "Contact", path: "/contact-us" },
         { name: "Services", path: "/services" },
-        { name: "Projects", path: "/templates" }
+        { name: "Projects", path: "/projects" }
       ]
     },
-    {
-      title: "Socials",
-      links: [
-        { name: "BLOG", path: "/blog" },
-        { name: "CASE STUIDES", path: "/case-studies" },
-        { name: "EVENTS", path: "/events" },
-        { name: "NEWS", path: "/news" }
-      ]
-    },
+   
   
     {
       title: "Legals",
@@ -40,38 +32,56 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#22282A] pt-20 pb-10 px-20">
-      <div className="container mx-auto px-4">
+    <footer className="bg-[#22282A] pt-20 pb-10">
+      <div className="container mx-auto px-4 md:px-16 max-w-full">
         {/* Navigation Grid */}
-        <div className="grid grid-cols-4 gap-16 mb-20"> {/* Changed grid-cols and gap */}
-          {footerSections.map((section) => (
-            <div key={section.title} className="w-full"> {/* Added w-full */}
-              <h3 className="text-[#D5E1E7] text-lg mb-6">{section.title}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-32 mb-20">
+          {/* First Column */}
+          <div className="w-full">
+            <h3 className="text-[#D5E1E7] text-xl font-medium mb-8">{footerSections[0].title}</h3>
+            <ul className="space-y-4">
+              {footerSections[0].links.map((link) => (
+                <li key={link.name}>
+                  <span className="text-[#556575]">{link.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Second Column */}
+          <div className="w-full">
+            <h3 className="text-[#D5E1E7] text-xl font-medium mb-8">{footerSections[1].title}</h3>
+            <ul className="space-y-4">
+              {footerSections[1].links.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-[#556575] hover:text-[#66E8FA] transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Third Column */}
+          <div className="w-full flex flex-col justify-between">
+            <div>
+              <h3 className="text-[#D5E1E7] text-xl font-medium mb-8">{footerSections[2].title}</h3>
               <ul className="space-y-4">
-                {section.links.map((link) => (
+                {footerSections[2].links.map((link) => (
                   <li key={link.name}>
-                    {link.path ? (
-                      <Link
-                        to={link.path}
-                        className="text-[#556575] hover:text-[#66E8FA] transition-colors text-sm"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <span className="text-[#556575] text-sm">
-                        {link.name}
-                      </span>
-                    )}
+                    <Link to={link.path} className="text-[#556575] hover:text-[#66E8FA] transition-colors">
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Bottom Section */}
         <div className="border-t border-[#2A3133] pt-10">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center max-w-full">
             {/* Brand Text */}
             <h2 className="text-5xl md:text-6xl text-[#D5E1E7] font-serif mb-8 md:mb-0">
               Your Vision.<br />Our Innovation.
@@ -109,7 +119,7 @@ const Footer = () => {
           {/* Credits */}
           <div className="flex justify-end mt-8">
             <p className="text-[#556575] text-sm">
-               Dev by <span className="text-[#D5E1E7]">Axelera webTech</span>
+              Dev by <span className="text-[#D5E1E7]">Axelera webTech</span>
             </p>
           </div>
         </div>

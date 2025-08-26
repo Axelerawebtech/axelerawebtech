@@ -2,11 +2,14 @@ import React from 'react'
 import Projects from '../../components/Projects/Projects'
 import HomeContent3 from '../../components/HomeContent3/HomeContent3'
 import Testimonials from '../Testimonials/Testimonials'
-
+import HeroAnimation from '../../components/HeroAnimation/HeroAnimation'
+import FloatingCircles from '../../components/FloatingCircles/FloatingCircles'
 const Home = () => {
   return (
     <>
-    <div className="min-h-screen bg-[#22282A]">
+    <div className="min-h-screen bg-[#22282A] px-10">
+      <FloatingCircles />
+     
       {/* Hero Section */}
       <div className="container mx-auto px-4 pt-32">
         <div className="max-w-4xl">
@@ -15,6 +18,7 @@ const Home = () => {
             <br />
              with <span className="font-outline-2"> us</span>
           </h1>
+
           <p className="text-2xl text-[#D5E1E7] mt-6">
                
           </p>

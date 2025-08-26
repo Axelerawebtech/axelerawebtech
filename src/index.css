@@ -114,28 +114,6 @@ a, button, [data-cursor="pointer"] {
   will-change: transform;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .fluid-cursor-bg {
   will-change: transform;
   transition: all 0.1s;
@@ -175,4 +153,13 @@ a, button, [data-cursor="pointer"] {
 [data-cursor="pointer"]:hover ~ .fluid-cursor-container .fluid-cursor-bg {
   background-color: rgba(102, 232, 250, 0.25);
   transform: scale(1.5) !important;
+}
+
+/* Add to your existing styles */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
