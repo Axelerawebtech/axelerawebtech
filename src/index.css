@@ -1,5 +1,6 @@
-@import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 .font-outline-2 {
   -webkit-text-stroke: 2px #66E8FA;
   color: transparent;
@@ -162,4 +163,8 @@ a, button, [data-cursor="pointer"] {
 
 .pointer-events-none {
   pointer-events: none;
+}
+
+:root {
+  --font-space: 'Space Grotesk', sans-serif;
 }

@@ -35,22 +35,17 @@ const HomeContent3 = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative bg-[#22282A] py-20"
-            style={{ height: '400vh' }}
+            className="relative bg-[#22282A] py-10 "
+            style={{ height: '300vh' }}
         >
-            <div className="sticky top-0 h-screen flex items-center">
+            <div className="sticky top-0 h-screen flex items-center overflow-hidden">
                 <div className="container mx-auto px-4">
                     {/* Title */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-20"
-                    >
-                        <h2 className="text-6xl md:text-7xl font-serif text-[#D5E1E7] mb-6">
+                    <motion.div className="text-center mb-8 md:mb-20">
+                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif text-[#D5E1E7] mb-4">
                             Innovative Digital Solutions that Drive Growth
                         </h2>
-                        <p className="text-xl md:text-2xl text-[#999999] max-w-4xl mx-auto leading-relaxed font-light">
+                        <p className="text-base md:text-xl text-[#999999] max-w-4xl mx-auto leading-relaxed">
                             We build smart, scalable, and user-focused digital solutions that help brands innovate,
                             accelerate growth, and stay ahead in the digital era
                         </p>
@@ -59,7 +54,7 @@ const HomeContent3 = () => {
                     {/* Cards Stack Container */}
                     <div
                         className="relative max-w-4xl mx-auto"
-                        style={{ height: '480px' }}
+                        style={{ height: 'clamp(300px, 50vh, 480px)' }}
                     >
                         {cards.map((card, i) => {
                             const index = cards.length - 1 - i;
@@ -90,25 +85,25 @@ const HomeContent3 = () => {
                                         width: '100%',
                                         height: '400px',
                                     }}
-                                    className="bg-[#92A6B0] rounded-[32px] p-12 shadow-2xl "
+                                    className="bg-[#92A6B0] rounded-[16px] md:rounded-[32px] p-4 md:p-12"
                                 >
-                                    <div className="flex items-start gap-8 h-full">
+                                    <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8 h-full">
                                         <div
-                                            className="w-24 h-24 rounded-full flex items-center justify-center shrink-0"
+                                            className="w-16 h-16 md:w-24 md:h-24 rounded-full flex items-center justify-center shrink-0"
                                             style={{ backgroundColor: card.color }}
                                         >
-                                            <span className="text-[#22282A] text-4xl font-bold">
+                                            <span className="text-[#22282A] text-2xl md:text-4xl font-bold">
                                                 {i + 1}
                                             </span>
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-[42px] font-serif text-[#22282A] mb-6 leading-tight">
+                                            <h3 className="text-2xl md:text-3xl lg:text-[42px] font-serif text-[#22282A] mb-3 md:mb-6 leading-tight">
                                                 {card.title}
                                             </h3>
-                                            <p className="text-[#D5E1E7] text-2xl leading-relaxed max-w-2xl">
+                                            <p className="text-lg md:text-xl lg:text-2xl text-[#D5E1E7] leading-relaxed max-w-2xl">
                                                 {card.description}
                                             </p>
-                                            <p className="text-[#F5FCFF] text-xl italic leading-relaxed max-w-2xl pt-2">
+                                            <p className="text-base md:text-lg lg:text-xl text-[#F5FCFF] italic leading-relaxed max-w-2xl pt-2">
                                                 {card.subText}
                                             </p>
                                         </div>
