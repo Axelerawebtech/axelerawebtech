@@ -43,7 +43,7 @@ const Projects = () => {
     {
       id: 6,
       name: "Axelera WebTech",
-      description: "Korean restaurant specializing in authentic Korean cuisine.",
+      description: "Tech Company of us based in Srilanka.",
       image: "/project-6.png",
       link: "https://axelerawebtech.com"
     }
